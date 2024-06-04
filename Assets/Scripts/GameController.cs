@@ -18,6 +18,7 @@ public class Question
 
 public class GameController : MonoBehaviour
 {
+    [SerializeField] private MenuController menuController;
     [SerializeField] private TMP_Text _qText;
     [Header("Answers")]
     [SerializeField] private Button[] _ansButtons;
@@ -71,21 +72,7 @@ public class GameController : MonoBehaviour
             _ansButtons[i].gameObject.SetActive(true);
         }
     }
-    private void EndGame()
-    {
-        _qText.text = "END!!!";
-        for (var i = 0; i < _ansButtons.Length; i++)
-        {
-            _ansButtons[i].gameObject.SetActive(false);
-        }
-        _tipOne.gameObject.SetActive(false);
-        _tipTwo.GetComponentInChildren<TMP_Text>().text = "GO!!!";
-        _tipTwo.enabled = true;
-        _tipThree.gameObject.SetActive(false);
-        _tipTwo.onClick.RemoveAllListeners();
-        _tipTwo.onClick.AddListener(() => SceneManager.LoadScene(SceneManager.GetActiveScene().name));
-    }
-    private void OnButtonClick(byte index)
+     private void OnButtonClick(byte index)
     {
         var correctIndex = _questions[_currentIndex].CorrectIndex;
         if(index == correctIndex)
@@ -93,7 +80,7 @@ public class GameController : MonoBehaviour
             _currentIndex++;
             if (_currentIndex >= _questions.Length)
             {
-                EndGame();
+                menuController.ShowWin();
             }
             else
             {
@@ -102,7 +89,8 @@ public class GameController : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            menuController.ShowLoose();
         }
     }
 
@@ -115,7 +103,7 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         SetQuestion();
-
+        menuController.ShowGame();
         for(byte i = 0; i < _ansButtons.Length; i++)
         {
             var index = i;
