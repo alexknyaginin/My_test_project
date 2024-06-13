@@ -7,6 +7,11 @@ public class MenuController : MonoBehaviour
     [SerializeField] private GameObject win;
     [SerializeField] private GameObject loose;
 
+    public void TestPlay()
+    {
+        SceneManager.LoadScene(1);
+    }
+
     public void ShowGame()
     {
         game.SetActive(true);
@@ -32,7 +37,7 @@ public class MenuController : MonoBehaviour
     
     public void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(0);
     }
     public void Exit()
     {
