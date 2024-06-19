@@ -14,12 +14,14 @@ public class Question
     public string[] Answers;
     [Range(0, 3)]
     public byte CorrectIndex;
+    public Texture Image;
 }
 
 public class GameController : MonoBehaviour
 {
     [SerializeField] private MenuController menuController;
     [SerializeField] private TMP_Text _qText;
+    [SerializeField] private RawImage _imgTexture;
     [Header("Answers")]
     [SerializeField] private Button[] _ansButtons;
     private TMP_Text[] _ansButtonsText;
@@ -32,7 +34,7 @@ public class GameController : MonoBehaviour
 
     [Header("Questions")]
     [SerializeField] private Question[] _questions;
-
+    
     [Header("Test")]
     [SerializeField] private byte _currentIndex = 0;
 
@@ -50,6 +52,7 @@ public class GameController : MonoBehaviour
     {
         var currentQuestions = _questions[_currentIndex];
         _qText.text = currentQuestions.text;
+        _imgTexture.texture = currentQuestions.Image;
         for (var i = 0; i < _ansButtons.Length; i++)
         {
             var text = currentQuestions.Answers[i];

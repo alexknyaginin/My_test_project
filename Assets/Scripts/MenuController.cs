@@ -26,7 +26,7 @@ public class MenuController : MonoBehaviour
 
     public void ShowWin()
     {
-        Invoke("WinMetod", 0.5f);
+        Invoke("WinMetod", 0.4f);
     }
     public void WinMetod()
     {
@@ -39,7 +39,7 @@ public class MenuController : MonoBehaviour
 
     public void ShowLoose()
     {
-        Invoke("LooseMetod", 0.5f);
+        Invoke("LooseMetod", 0.4f);
     }
     public void LooseMetod()
     {
@@ -57,7 +57,7 @@ public class MenuController : MonoBehaviour
     
     public void Restart()
     {
-        Invoke("LoadMenu", 0.5f);
+        Invoke("LoadMenu", 0.4f);
     }
     public void LoadMenu()
     {
