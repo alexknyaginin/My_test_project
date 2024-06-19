@@ -59,11 +59,24 @@ public class MenuController : MonoBehaviour
     {
         Invoke("LoadMenu", 0.4f);
     }
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
     public void LoadMenu()
     {
         SceneManager.LoadScene(0);
     }
+<<<<<<< Updated upstream
 
+=======
+    public void LastChance()
+    {
+        ShowGame();
+    }
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
     public void Exit()
     {
         Application.Quit();

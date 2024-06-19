@@ -4212,6 +4212,12 @@ CanvasRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+  m_GameObject: {fileID: 1598050699}
+=======
+>>>>>>> Stashed changes
   m_GameObject: {fileID: 1303962148}
   m_CullTransparentMesh: 1
 --- !u!1 &1347717311
@@ -4968,7 +4974,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 675792488}
         m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
+<<<<<<< Updated upstream
         m_MethodName: Restart
+=======
+        m_MethodName: LastChance
+>>>>>>> Stashed changes
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5027,6 +5037,10 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1603257643}
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
   m_CullTransparentMesh: 1
 --- !u!1 &1640930589
 GameObject:
