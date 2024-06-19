@@ -14,12 +14,14 @@ public class Question
     public string[] Answers;
     [Range(0, 3)]
     public byte CorrectIndex;
+    public Texture Image;
 }
 
 public class GameController : MonoBehaviour
 {
     [SerializeField] private MenuController menuController;
     [SerializeField] private TMP_Text _qText;
+    [SerializeField] private RawImage _imgTexture;
     [Header("Answers")]
     [SerializeField] private Button[] _ansButtons;
     private TMP_Text[] _ansButtonsText;
@@ -32,7 +34,7 @@ public class GameController : MonoBehaviour
 
     [Header("Questions")]
     [SerializeField] private Question[] _questions;
-
+    
     [Header("Test")]
     [SerializeField] private byte _currentIndex = 0;
 
@@ -50,22 +52,23 @@ public class GameController : MonoBehaviour
     {
         var currentQuestions = _questions[_currentIndex];
         _qText.text = currentQuestions.text;
+        _imgTexture.texture = currentQuestions.Image;
         for (var i = 0; i < _ansButtons.Length; i++)
         {
             var text = currentQuestions.Answers[i];
             switch (i)
             {
                 case 0:
-                    text = $"A: {text}";
+                    text = $"{text}";
                     break;
                 case 1:
-                    text = $"B: {text}";
+                    text = $"{text}";
                     break;
                 case 2:
-                    text = $"C: {text}";
+                    text = $"{text}";
                     break;
                 case 3:
-                    text = $"D: {text}";
+                    text = $"{text}";
                     break;
             }
             _ansButtonsText[i].text = text;
@@ -129,11 +132,10 @@ public class GameController : MonoBehaviour
         });
         _tipTwo.onClick.AddListener(() => 
         {
-            var randomNumber = GetRandomInt(0, 100);
+            var currentQuestions = _questions[_currentIndex];
             var correctIndex = _questions[_currentIndex].CorrectIndex;
-            var answerInt = randomNumber <= _callPercent? correctIndex : GetRandomInt(0, 3);
-            var answerStr = "";
-            switch (answerInt)
+            var answerStr = currentQuestions.Answers[correctIndex];                    
+            /*switch (answerInt)
             {
                 case 0 : answerStr = "A";
                     break;
@@ -143,8 +145,8 @@ public class GameController : MonoBehaviour
                     break;
                 case 3 : answerStr = "D";
                     break;
-            }
-            _qText.text = $"Думаю это {answerStr}";
+            }*/
+            _qText.text = $"Правильный ответ: {answerStr}";
             _tipTwo.enabled = false;
         });
         _tipThree.onClick.AddListener(() => 
