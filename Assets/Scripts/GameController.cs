@@ -59,16 +59,16 @@ public class GameController : MonoBehaviour
             switch (i)
             {
                 case 0:
-                    text = $"A: {text}";
+                    text = $"{text}";
                     break;
                 case 1:
-                    text = $"B: {text}";
+                    text = $"{text}";
                     break;
                 case 2:
-                    text = $"C: {text}";
+                    text = $"{text}";
                     break;
                 case 3:
-                    text = $"D: {text}";
+                    text = $"{text}";
                     break;
             }
             _ansButtonsText[i].text = text;
