@@ -132,11 +132,10 @@ public class GameController : MonoBehaviour
         });
         _tipTwo.onClick.AddListener(() => 
         {
-            var randomNumber = GetRandomInt(0, 100);
+            var currentQuestions = _questions[_currentIndex];
             var correctIndex = _questions[_currentIndex].CorrectIndex;
-            var answerInt = randomNumber <= _callPercent? correctIndex : GetRandomInt(0, 3);
-            var answerStr = "";
-            switch (answerInt)
+            var answerStr = currentQuestions.Answers[correctIndex];                    
+            /*switch (answerInt)
             {
                 case 0 : answerStr = "A";
                     break;
@@ -146,8 +145,8 @@ public class GameController : MonoBehaviour
                     break;
                 case 3 : answerStr = "D";
                     break;
-            }
-            _qText.text = $"Думаю это {answerStr}";
+            }*/
+            _qText.text = $"Правильный ответ: {answerStr}";
             _tipTwo.enabled = false;
         });
         _tipThree.onClick.AddListener(() => 
