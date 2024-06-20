@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -26,14 +25,12 @@ public class GameController : MonoBehaviour
     [Header("Answers")]
     [SerializeField] private Button[] _ansButtons;
     private TMP_Text[] _ansButtonsText;
-    private bool makeMistake = false;
-    private string _qTextmakeMistake;
 
     [Header("tips")]
     [SerializeField] private Button _tipOne;
     [SerializeField] private Button _tipTwo;
     [SerializeField] private Button _tipThree;
-    [Range(0, 100)][SerializeField] private byte _callPercent = 100;
+    [Range(0, 100)][SerializeField] private byte _callPercent = 60;
 
     [Header("Questions")]
     [SerializeField] private Question[] _questions;
@@ -91,21 +88,12 @@ public class GameController : MonoBehaviour
             else
             {
                 SetQuestion();
-                makeMistake = false;
             }
         }
         else
         {
-            if (makeMistake)
-            {
-                _qText.text = $"Попробуйте еще раз \n {_qTextmakeMistake}";
-                _ansButtons[index].gameObject.SetActive(false);
-                makeMistake = false;
-            }
-            else
-            {
-                menuController.ShowLoose();
-            }
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            menuController.ShowLoose();
         }
     }
 
@@ -146,15 +134,8 @@ public class GameController : MonoBehaviour
         {
             var currentQuestions = _questions[_currentIndex];
             var correctIndex = _questions[_currentIndex].CorrectIndex;
-<<<<<<< Updated upstream
             var answerStr = currentQuestions.Answers[correctIndex];                    
             /*switch (answerInt)
-=======
-<<<<<<< Updated upstream
-            var answerInt = randomNumber <= _callPercent? correctIndex : GetRandomInt(0, 3);
-            var answerStr = "";
-            switch (answerInt)
->>>>>>> Stashed changes
             {
                 case 0 : answerStr = "A";
                     break;
@@ -164,24 +145,36 @@ public class GameController : MonoBehaviour
                     break;
                 case 3 : answerStr = "D";
                     break;
-<<<<<<< Updated upstream
             }*/
             _qText.text = $"Правильный ответ: {answerStr}";
-=======
-            }
-            _qText.text = $"Думаю это {answerStr}";
-=======
-            var answerStr = currentQuestions.Answers[correctIndex];                    
-            _qText.text = $"Правильный ответ: {answerStr}";
->>>>>>> Stashed changes
->>>>>>> Stashed changes
             _tipTwo.enabled = false;
         });
         _tipThree.onClick.AddListener(() => 
         {
-            _qTextmakeMistake = _qText.text;
-            _qText.text = $"Вы использовали право на ошибку";
-            makeMistake = true;
+            var a = 0;
+            var b = 0;
+            var c = 0;
+            var d = 0;
+            for (int i = 0; i < 100; i++)
+            {
+                var randomNumber = GetRandomInt(0,3);
+                switch (randomNumber)
+                {
+                    case 0:
+                        a++;
+                        break;
+                    case 1:
+                        b++;
+                        break;
+                    case 2:
+                        c++;
+                        break;
+                    case 3:
+                        d++;
+                        break;
+                }
+            }
+            _qText.text = $"A:{a} B:{b} C:{c} D:{d}";
             _tipThree.enabled = false;
         });
     }
