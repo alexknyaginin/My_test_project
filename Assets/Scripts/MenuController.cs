@@ -63,7 +63,10 @@ public class MenuController : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
-
+    public void LastChance()
+    {
+        ShowGame();
+    }
     public void Exit()
     {
         Application.Quit();
