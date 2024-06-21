@@ -11,6 +11,8 @@ public class MenuController : MonoBehaviour
     [SerializeField] AudioSource LoseSong;
     [SerializeField] AudioSource StopMusic;
     [SerializeField] AudioSource WinSong;
+    [SerializeField] AudioSource ResetSong;
+
 
     public void TestPlay()
     {
@@ -66,6 +68,7 @@ public class MenuController : MonoBehaviour
     public void LastChance()
     {
         ShowGame();
+        ResetSong.Play();
     }
     public void Exit()
     {
