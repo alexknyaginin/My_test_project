@@ -8,17 +8,17 @@ public class MainMenu : MonoBehaviour
     private IEnumerator ForButt1()
     {
         yield return new WaitForSeconds(0.4f);
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
     private IEnumerator ForButt2()
     {
         yield return new WaitForSeconds(0.4f);
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(4);
     }
     private IEnumerator ForButt3()
     {
         yield return new WaitForSeconds(0.4f);
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(3);
     }
     private IEnumerator ForButt4()
     {
